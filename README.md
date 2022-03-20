@@ -1,6 +1,7 @@
 # Let's Eat
 
 > Recipe app for Android. Created as part of the AND course at VIA University College.
+The users can view a list of recipes, with the necessary ingredients and the cooking steps. They can also select the ingredients they have at home, to filter the recipes. Moreover, the user can see other details, such as the total cooking time, serving size, and how the finished meal looks. The recipes, as well as the ingredients, are created by the administrator(s). The main motivation behind this project is to encourage people to make home-made meals instead of eating out, by offering them plenty of tasty and healthy recipes. Also, since recipe apps are common, it is easier to define the requirements and implement them.
 
 ## Roadmap
 - [x] Add initial files
