@@ -1,4 +1,4 @@
-# lets-eat
+# Let's Eat
 
 > Recipe app for Android. Created as part of the AND course at VIA University College.
 
