@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Let\'s Eat</string>
+    <string name="main_title">Find the best recipe</string>
+    <string name="search_placeholder">Recipe name</string>
 </resources>
