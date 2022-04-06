@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -32,6 +33,8 @@ public class SearchByProductFragment extends Fragment {
         Button addIngredientsButton = view.findViewById(R.id.add_ingredients_button);
         Button findRecipes = view.findViewById(R.id.find_recipes);
         RecyclerView rv = view.findViewById(R.id.rv);
+        ProgressBar progressBar = view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
 
         rv.hasFixedSize();
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -52,8 +55,9 @@ public class SearchByProductFragment extends Fragment {
                 recipes.add(re.getRecipe());
                 System.out.println(re.getRecipe().getId() + re.getRecipe().getName() + re.getRecipe().getImg());
             }
-            RecipeAdapter adapter = new RecipeAdapter(recipes);
+            RecipeAdapter adapter = new RecipeAdapter(recipes, (v, position) -> {});
             rv.setAdapter(adapter);
+            progressBar.setVisibility(View.GONE);
         });
         return view;
     }

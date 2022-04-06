@@ -24,13 +24,16 @@ import java.util.ArrayList;
 
 import repository.model.Ingredient;
 import repository.model.Recipe;
+import view.RecyclerViewClickListener;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
 
     private ArrayList<Recipe> recipes;
+    RecyclerViewClickListener listener;
 
-    public RecipeAdapter(ArrayList<Recipe> recipes) {
+    public RecipeAdapter(ArrayList<Recipe> recipes, RecyclerViewClickListener listener) {
         this.recipes = recipes;
+        this.listener = listener;
     }
 
     @NonNull
@@ -53,7 +56,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         return recipes.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView name;
         private final ImageView img;
 
@@ -61,6 +64,12 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             super(itemView);
             name = itemView.findViewById(R.id.recipeName);
             img = itemView.findViewById(R.id.recipeImg);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            listener.recyclerViewListClicked(itemView, this.getLayoutPosition());
         }
     }
 }
