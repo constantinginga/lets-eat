@@ -28,7 +28,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
     private ArrayList<Recipe> recipes;
 
-    RecipeAdapter(ArrayList<Recipe> recipes) {
+    public RecipeAdapter(ArrayList<Recipe> recipes) {
         this.recipes = recipes;
     }
 
