@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.letseat.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,18 +33,35 @@ public class AuthFragment extends Fragment {
         Button signupBtn = view.findViewById(R.id.signupBtn);
 
         signupBtn.setOnClickListener(v -> {
-            mAuth.createUserWithEmailAndPassword(emailInput.getText().toString(), passwordInput.getText().toString())
+//            mAuth.createUserWithEmailAndPassword(emailInput.getText().toString(), passwordInput.getText().toString())
+//                    .addOnCompleteListener(getActivity(), task -> {
+//                        if (task.isSuccessful()) {
+//                            // Sign up successful
+//                            Log.d("Auth", "createUserWithEmail:success");
+//                            Toast.makeText(getActivity(), "Registration successful", Toast.LENGTH_SHORT).show();
+//                            FirebaseUser user = mAuth.getCurrentUser();
+//                        } else {
+//                            // Sign up failed
+//                            Log.w("Auth", "createUserWithEmail:failure", task.getException());
+//                            Toast.makeText(getActivity(), "Registration failed", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+            mAuth.signInWithEmailAndPassword(emailInput.getText().toString(), passwordInput.getText().toString())
                     .addOnCompleteListener(getActivity(), task -> {
-                        if (task.isSuccessful()) {
-                            // Sign up successful
-                            Log.d("Auth", "createUserWithEmail:success");
-                            Toast.makeText(getActivity(), "Registration successful", Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-                        } else {
-                            // Sign up failed
-                            Log.w("Auth", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(getActivity(), "Registration failed", Toast.LENGTH_SHORT).show();
-                        }
+                       if (task.isSuccessful()) {
+                           // Login successful
+                           FragmentManager fragmentManager = getParentFragmentManager();
+                           FragmentTransaction ft = fragmentManager.beginTransaction();
+                           // MainPageFragment mainPageFragment = new MainPageFragment();
+                           // ft.hide(AuthFragment.this);
+                           ft.replace(R.id.frameLayout, new MainPageFragment());
+                           ft.commit();
+                       }
+                       else {
+                           // Login failed
+                           Log.w("Auth", "signInWithEmailAndPassword:failure", task.getException());
+                           Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_SHORT).show();
+                       }
                     });
         });
         return view;
