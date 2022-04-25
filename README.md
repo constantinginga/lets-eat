@@ -20,7 +20,7 @@ The users can view a list of recipes, with the necessary ingredients and the coo
 ## Requirements
 | Number | Priority | Requirement                                                                                                                                                   | Status          |
 |--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| 1      | Critical | As a user, I would like to browse all recipes, such that I can choose what to cook.                                                                           | Not implemented |
+| 1      | Critical | As a user, I would like to browse all recipes, such that I can choose what to cook.                                                                           | [x] |
 | 2      | Critical | As a user, I would like to see the list of ingredients and quantity of each ingredient for a specific recipe, such that I can know the necessary ingredients. | Not implemented |
 | 3      | Critical | As an administrator, I would like to create new recipes, such that I can give users more options.                                                             | Not implemented |
 | 4      | Critical | As a user, I would like to see the steps for a specific recipe, such that I can know how to cook that recipe.                                                 | Not implemented |
