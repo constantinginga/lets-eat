@@ -40,9 +40,6 @@ public class MainPageFragment extends Fragment {
         // rv.hasFixedSize();
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         ArrayList<Recipe> recipes = new ArrayList<>();
-        //RecipeAdapter recipeAdapter = new RecipeAdapter(recipes);
-        //rv.setAdapter(recipeAdapter);
-
         viewModel.getAllRecipes(1000);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), r -> {
             for (RecipeResponse re : r) {

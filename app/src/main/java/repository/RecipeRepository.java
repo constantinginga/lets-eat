@@ -11,7 +11,6 @@ import repository.data.RecipeApi;
 import repository.data.RecipeResponse;
 import repository.data.RecipesResponse;
 import repository.data.ServiceGenerator;
-import repository.model.Recipe;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,7 +29,6 @@ public class RecipeRepository {
         if (instance == null) {
             instance = new RecipeRepository();
         }
-
         return instance;
     }
 
@@ -78,4 +76,22 @@ public class RecipeRepository {
         });
 
     }
-}
+
+    public void getRecipesByIngredients(ArrayList<String> ingredients) {
+        RecipeApi recipeApi = ServiceGenerator.getRecipeApi();
+        Call<RecipesResponse> call = recipeApi.getIngredientsList(0, 1000, ingredients);
+        call.enqueue(new Callback<RecipesResponse>() {
+            @Override
+            public void onResponse(Call<RecipesResponse> call, Response<RecipesResponse> response) {
+                if (response.isSuccessful()) {
+                    recipes.setValue(response.body().getResults());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RecipesResponse> call, Throwable t) {
+                Log.i("API", "Error in getting all getRecipesByIngredients");
+            }
+        });
+    }
+    }

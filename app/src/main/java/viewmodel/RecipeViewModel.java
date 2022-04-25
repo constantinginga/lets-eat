@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import repository.RecipeRepository;
 import repository.data.RecipeResponse;
-import repository.model.Recipe;
 
 public class RecipeViewModel extends ViewModel {
     RecipeRepository repository;
@@ -31,4 +30,7 @@ public class RecipeViewModel extends ViewModel {
     public void searchForRecipe(String r) {
         repository.searchForRecipe(r);
     }
+
+    public void getRecipesByIngredients(ArrayList<String> r) { repository.getRecipesByIngredients(r); }
+
 }
