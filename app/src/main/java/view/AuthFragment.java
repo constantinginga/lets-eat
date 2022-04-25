@@ -54,7 +54,7 @@ public class AuthFragment extends Fragment {
                            FragmentTransaction ft = fragmentManager.beginTransaction();
                            // MainPageFragment mainPageFragment = new MainPageFragment();
                            // ft.hide(AuthFragment.this);
-                           ft.replace(R.id.frameLayout, new MainPageFragment());
+                           ft.replace(R.id.fragmentContainerView, new MainPageFragment());
                            ft.commit();
                        }
                        else {

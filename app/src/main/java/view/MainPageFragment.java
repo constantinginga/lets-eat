@@ -48,7 +48,7 @@ public class MainPageFragment extends Fragment {
             }
             System.out.println("FROM FRAGMENT: " + recipes.size());
 //            ((RecipeAdapter) rv.getAdapter()).updateRecipes(recipes);
-            RecipeAdapter recipeAdapter = new RecipeAdapter(recipes);
+            RecipeAdapter recipeAdapter = new RecipeAdapter(recipes, (v, pos) -> {});
             rv.setAdapter(recipeAdapter);
             pb.setVisibility(View.GONE);
             layout.setVisibility(View.VISIBLE);
