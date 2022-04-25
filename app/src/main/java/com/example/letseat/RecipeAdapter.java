@@ -43,7 +43,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int position) {
         holder.name.setText(recipes.get(position).getName());
-        // holder.img.setImageBitmap(getImageBitmap(recipes.get(position).getImg()));
         Picasso.get().load(recipes.get(position).getImg()).into(holder.img);
     }
 
@@ -51,6 +50,27 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     public int getItemCount() {
         return recipes.size();
     }
+
+    public void updateRecipes(ArrayList<Recipe> updated) {
+//        // System.out.println("BEFORE CLEAR: " + updated.size());
+//        ArrayList<Recipe> temp = new ArrayList<>(updated);
+//        recipes.clear();
+//        // System.out.println("AFTER CLEAR: " + updated.size());
+//        recipes.addAll(temp);
+//        System.out.println("NEW RECIPES SIZE: " + recipes.size());
+        this.recipes = new ArrayList<>(updated);
+        for (Recipe r : recipes) {
+            System.out.println(r.getName());
+        }
+        notifyDataSetChanged();
+    }
+
+//    public void addRecipe(Recipe recipe) {
+//        // recipes.clear();
+//        recipes.add(recipe);
+//        System.out.println(recipes.size() + recipe.getName());
+//        // notifyDataSetChanged();
+//    }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView name;

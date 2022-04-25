@@ -8,9 +8,11 @@ The users can view a list of recipes, with the necessary ingredients and the coo
 - [x] Change app icon
 - [x] Create project structure
 - [x] Connect to the [Tasty API](https://rapidapi.com/apidojo/api/tasty/)
-- [] Finish initial page
-- [] Implement "search by product" page
-- [] Implement bottom navigation
+- [x] Connect to Firebase
+- [x] Setup Firebase authentication
+- [ ] Finish initial page
+- [ ] Implement "search by product" page
+- [ ] Implement bottom navigation
  
 ## Live Demo
 - Not available yet

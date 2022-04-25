@@ -1,30 +1,40 @@
 package com.example.letseat;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import java.util.ArrayList;
-import repository.data.RecipeResponse;
-import repository.model.Recipe;
-import viewmodel.RecipeViewModel;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import view.AuthFragment;
+import view.MainPageFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecipeViewModel viewModel;
-    private RecyclerView rv;
-    private RecipeAdapter recipeAdapter;
-    private TextView recipeName;
-    private Button searchBtn;
-    private EditText recipeIn;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        replaceFragment(currentUser != null);
+    }
+
+    private void replaceFragment(boolean isLoggedIn) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        // render different fragment based on login state
+        ft.replace(R.id.frameLayout, (isLoggedIn) ? new MainPageFragment() : new AuthFragment());
+        ft.commit();
     }
 }
