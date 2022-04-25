@@ -47,7 +47,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int position) {
         holder.name.setText(recipes.get(position).getName());
-        // holder.img.setImageBitmap(getImageBitmap(recipes.get(position).getImg()));
         Picasso.get().load(recipes.get(position).getImg()).into(holder.img);
     }
 
@@ -56,7 +55,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         return recipes.size();
     }
 
-     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView name;
         private final ImageView img;
 
