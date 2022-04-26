@@ -42,24 +42,19 @@ public class MainPageFragment extends Fragment {
         ArrayList<Recipe> recipes = new ArrayList<>();
         viewModel.getAllRecipes(1000);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), r -> {
+            recipes.clear();
             for (RecipeResponse re : r) {
                 recipes.add(re.getRecipe());
-                // System.out.println(re.getRecipe().getId() + re.getRecipe().getName() + re.getRecipe().getImg());
             }
-            System.out.println("FROM FRAGMENT: " + recipes.size());
-//            ((RecipeAdapter) rv.getAdapter()).updateRecipes(recipes);
             RecipeAdapter recipeAdapter = new RecipeAdapter(recipes, (v, pos) -> {});
             rv.setAdapter(recipeAdapter);
             pb.setVisibility(View.GONE);
             layout.setVisibility(View.VISIBLE);
-            // recipeAdapter.notifyDataSetChanged();
         });
 
 
         searchBtn.setOnClickListener(v -> {
-            if (recipeIn.getText() != null) {
-                viewModel.searchForRecipe(recipeIn.getText().toString());
-            }
+            if (recipeIn.getText() != null) viewModel.searchForRecipe(recipeIn.getText().toString());
         });
 
         return view;

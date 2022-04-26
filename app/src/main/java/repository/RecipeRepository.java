@@ -17,12 +17,14 @@ import retrofit2.Response;
 
 public class RecipeRepository {
     private static RecipeRepository instance;
-    private MutableLiveData<ArrayList<RecipeResponse>> recipes;
-    private final MutableLiveData<ArrayList<RecipeResponse>> searchedRecipes;
+    private final MutableLiveData<ArrayList<RecipeResponse>> recipes;
+    private final ArrayList<RecipeResponse> cachedRecipes;
+    private final ArrayList<RecipeResponse> searchedRecipes;
 
     private RecipeRepository() {
         recipes = new MutableLiveData<>();
-        searchedRecipes = new MutableLiveData<>();
+        cachedRecipes = new ArrayList<>();
+        searchedRecipes = new ArrayList<>();
     }
 
     public static synchronized RecipeRepository getInstance() {
@@ -32,26 +34,34 @@ public class RecipeRepository {
         return instance;
     }
 
-    public LiveData<ArrayList<RecipeResponse>> getSearchedRecipe() {
-        return searchedRecipes;
-    }
-
     public void searchForRecipe(String r) {
-        RecipeApi recipeApi = ServiceGenerator.getRecipeApi();
-        Call<RecipesResponse> call = recipeApi.getRecipe(r);
-        call.enqueue(new Callback<RecipesResponse>() {
-            @Override
-            public void onResponse(Call<RecipesResponse> call, Response<RecipesResponse> response) {
-                if (response.isSuccessful()) {
-                    searchedRecipes.setValue(response.body().getResults());
-                }
-            }
 
-            @Override
-            public void onFailure(Call<RecipesResponse> call, Throwable t) {
-                Log.i("API", "Error in searchForRecipe(" + r + ")");
+        searchedRecipes.clear();
+
+        // if the search term is empty, show all recipes
+        if (r == null || r.equals("") || recipes.getValue() == null) {
+            recipes.setValue(cachedRecipes);
+            return;
+        }
+
+        if (recipes.getValue().size() != 0) {
+            for (RecipeResponse recipe : recipes.getValue()) {
+                if (recipe.getRecipe().getName().toLowerCase().contains(r.toLowerCase()))
+                    searchedRecipes.add(recipe);
             }
-        });
+        } else {
+            for (RecipeResponse recipe : cachedRecipes) {
+                if (recipe.getRecipe().getName().toLowerCase().contains(r.toLowerCase()))
+                    searchedRecipes.add(recipe);
+            }
+        }
+
+        // save the recipe list
+        if (cachedRecipes.size() == 0) {
+            cachedRecipes.addAll(recipes.getValue());
+        }
+
+        recipes.setValue(searchedRecipes);
     }
 
     public LiveData<ArrayList<RecipeResponse>> getRecipes() {
@@ -65,6 +75,7 @@ public class RecipeRepository {
             @Override
             public void onResponse(Call<RecipesResponse> call, Response<RecipesResponse> response) {
                 if (response.isSuccessful()) {
+                    System.out.println("Recipes in Repo: " + response.body().getResults().size());
                     recipes.setValue(response.body().getResults());
                 }
             }
@@ -94,4 +105,4 @@ public class RecipeRepository {
             }
         });
     }
-    }
+}

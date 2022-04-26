@@ -23,9 +23,9 @@ public class RecipeViewModel extends ViewModel {
         repository.getAllRecipes(size);
     }
 
-    public LiveData<ArrayList<RecipeResponse>> getSearchedRecipe() {
-        return repository.getSearchedRecipe();
-    }
+//    public LiveData<ArrayList<RecipeResponse>> getSearchedRecipes() {
+//        return repository.getSearchedRecipes();
+//    }
 
     public void searchForRecipe(String r) {
         repository.searchForRecipe(r);
