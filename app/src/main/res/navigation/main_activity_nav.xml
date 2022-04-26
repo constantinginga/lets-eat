@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
     app:startDestination="@id/mainPageFragment">
 
     <fragment
         android:id="@+id/mainPageFragment"
         android:name="view.MainPageFragment"
-        android:label="MainPageFragment" />
+        android:label="MainPageFragment"
+        tools:layout="@layout/fragment_main_page"/>
     <fragment
         android:id="@+id/searchByProductFragment"
         android:name="view.SearchByProductFragment"
-        android:label="SearchByProductFragment" />
+        android:label="SearchByProductFragment"
+        tools:layout="@layout/fragment_search_by_product"/>
 </navigation>
