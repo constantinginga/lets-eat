@@ -11,6 +11,7 @@ The users can view a list of recipes, with the necessary ingredients and the coo
 - [x] Connect to Firebase
 - [x] Setup Firebase authentication
 - [ ] Finish initial page
+- [ ] Implement Authentication page
 - [ ] Implement "search by product" page
 - [ ] Implement bottom navigation
  
