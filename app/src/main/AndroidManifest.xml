@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsEat">
         <activity
-            android:name=".AuthActivity"
+            android:name="com.example.letseat.view.activities.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.letseat.view.activities.MainActivity"
             android:exported="true">
         </activity>
     </application>

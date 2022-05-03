@@ -1,4 +1,4 @@
-package repository.model;
+package com.example.letseat.repository.model;
 
 public class Ingredient {
     private final String ingredientName;

@@ -1,4 +1,4 @@
-package repository.data;
+package com.example.letseat.repository.data;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

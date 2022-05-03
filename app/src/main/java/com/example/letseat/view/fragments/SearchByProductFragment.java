@@ -1,4 +1,4 @@
-package view;
+package com.example.letseat.view.fragments;
 
 
 import android.os.Bundle;
@@ -15,14 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.letseat.R;
-import com.example.letseat.RecipeAdapter;
+import com.example.letseat.view.RecipeAdapter;
 
 import java.util.ArrayList;
 
-import repository.data.RecipeResponse;
-import repository.model.Ingredient;
-import repository.model.Recipe;
-import viewmodel.RecipeViewModel;
+import com.example.letseat.repository.data.RecipeResponse;
+import com.example.letseat.repository.model.Recipe;
+import com.example.letseat.viewmodel.RecipeViewModel;
 
 public class SearchByProductFragment extends Fragment {
 
@@ -55,7 +54,7 @@ public class SearchByProductFragment extends Fragment {
                 recipes.add(re.getRecipe());
                 System.out.println(re.getRecipe().getId() + re.getRecipe().getName() + re.getRecipe().getImg());
             }
-            RecipeAdapter adapter = new RecipeAdapter(recipes, (v, position) -> {});
+            RecipeAdapter adapter = new RecipeAdapter(recipes, v -> {});
             rv.setAdapter(adapter);
             progressBar.setVisibility(View.GONE);
         });

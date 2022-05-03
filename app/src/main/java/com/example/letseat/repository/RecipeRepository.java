@@ -1,4 +1,4 @@
-package repository;
+package com.example.letseat.repository;
 
 import android.util.Log;
 
@@ -7,10 +7,10 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 
-import repository.data.RecipeApi;
-import repository.data.RecipeResponse;
-import repository.data.RecipesResponse;
-import repository.data.ServiceGenerator;
+import com.example.letseat.repository.data.RecipeApi;
+import com.example.letseat.repository.data.RecipeResponse;
+import com.example.letseat.repository.data.RecipesResponse;
+import com.example.letseat.repository.data.ServiceGenerator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

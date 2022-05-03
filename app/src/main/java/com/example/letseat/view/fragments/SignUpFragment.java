@@ -1,4 +1,4 @@
-package view;
+package com.example.letseat.view.fragments;
 
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.letseat.AuthActivity;
+import com.example.letseat.view.activities.AuthActivity;
 import com.example.letseat.R;
 
 public class SignUpFragment extends Fragment {

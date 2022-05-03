@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AuthActivity">
+    tools:context="com.example.letseat.view.activities.AuthActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/authFragment"
-        android:name="view.SignUpFragment"
+        android:name="com.example.letseat.view.fragments.SignUpFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

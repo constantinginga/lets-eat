@@ -1,24 +1,18 @@
-package com.example.letseat;
+package com.example.letseat.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.letseat.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import view.LoginFragment;
-import view.MainPageFragment;
-import view.SignUpFragment;
+import com.example.letseat.view.fragments.LoginFragment;
+import com.example.letseat.view.fragments.SignUpFragment;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -29,24 +23,8 @@ public class AuthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-
         mainActivityIntent = new Intent(AuthActivity.this, MainActivity.class);
         mAuth = FirebaseAuth.getInstance();
-//        getSupportFragmentManager().beginTransaction()
-//                .add(R.id.authFragment, new SignUpFragment())
-//                .commit();
-//        EditText emailInput = findViewById(R.id.emailInput);
-//        EditText passwordInput = findViewById(R.id.passwordInput);
-//        Button loginBtn = findViewById(R.id.loginBtn);
-//        TextView signUpLink = findViewById(R.id.signUpLink);
-
-        // signUpLink.setPaintFlags(signUpLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
-        // loginBtn.setOnClickListener(v -> login());
-
-        // signUpLink.setOnClickListener(v -> {
-            // switch to signup fragment here
-        // });
     }
 
     @Override

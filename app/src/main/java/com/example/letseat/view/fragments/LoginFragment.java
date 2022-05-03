@@ -1,12 +1,10 @@
-package view;
+package com.example.letseat.view.fragments;
 
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.letseat.AuthActivity;
+import com.example.letseat.view.activities.AuthActivity;
 import com.example.letseat.R;
 import com.google.firebase.auth.FirebaseAuth;
 

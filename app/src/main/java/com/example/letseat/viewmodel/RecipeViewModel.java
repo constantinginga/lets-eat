@@ -1,12 +1,12 @@
-package viewmodel;
+package com.example.letseat.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import repository.RecipeRepository;
-import repository.data.RecipeResponse;
+import com.example.letseat.repository.RecipeRepository;
+import com.example.letseat.repository.data.RecipeResponse;
 
 public class RecipeViewModel extends ViewModel {
     RecipeRepository repository;
@@ -24,7 +24,7 @@ public class RecipeViewModel extends ViewModel {
     }
 
 //    public LiveData<ArrayList<RecipeResponse>> getSearchedRecipes() {
-//        return repository.getSearchedRecipes();
+//        return com.example.letseat.repository.getSearchedRecipes();
 //    }
 
     public void searchForRecipe(String r) {

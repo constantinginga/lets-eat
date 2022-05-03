@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/mainPageFragment"
-        android:name="view.MainPageFragment"
+        android:name="com.example.letseat.view.fragments.MainPageFragment"
         android:label="MainPageFragment"
         tools:layout="@layout/fragment_main_page"/>
     <fragment
         android:id="@+id/searchByProductFragment"
-        android:name="view.SearchByProductFragment"
+        android:name="com.example.letseat.view.fragments.SearchByProductFragment"
         android:label="SearchByProductFragment"
         tools:layout="@layout/fragment_search_by_product"/>
 </navigation>

@@ -1,4 +1,4 @@
-package repository.data;
+package com.example.letseat.repository.data;
 
 import java.util.ArrayList;
 

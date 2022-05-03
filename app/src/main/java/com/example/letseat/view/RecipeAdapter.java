@@ -1,8 +1,5 @@
-package com.example.letseat;
+package com.example.letseat.view;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,26 +9,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.letseat.R;
 import com.squareup.picasso.Picasso;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 
-import repository.model.Ingredient;
-import repository.model.Recipe;
-import view.RecyclerViewClickListener;
+import com.example.letseat.repository.model.Recipe;
+import com.example.letseat.repository.OnClickListener;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
 
-    private ArrayList<Recipe> recipes;
-    RecyclerViewClickListener listener;
+    private final ArrayList<Recipe> recipes;
+    private final OnClickListener listener;
 
-    public RecipeAdapter(ArrayList<Recipe> recipes, RecyclerViewClickListener listener) {
+    public RecipeAdapter(ArrayList<Recipe> recipes, OnClickListener listener) {
         this.recipes = recipes;
         this.listener = listener;
     }
@@ -55,7 +46,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         return recipes.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView name;
         private final ImageView img;
 
@@ -63,12 +54,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             super(itemView);
             name = itemView.findViewById(R.id.recipeName);
             img = itemView.findViewById(R.id.recipeImg);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            listener.recyclerViewListClicked(itemView, this.getLayoutPosition());
+            itemView.setOnClickListener(v -> listener.onClick(recipes.get(getBindingAdapterPosition())));
         }
     }
 }
