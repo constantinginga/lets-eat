@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.example.letseat.view.fragments.LoginFragment;
 import com.example.letseat.view.fragments.SignUpFragment;
 
+import java.util.Objects;
+
 public class AuthActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -23,6 +25,7 @@ public class AuthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         mainActivityIntent = new Intent(AuthActivity.this, MainActivity.class);
         mAuth = FirebaseAuth.getInstance();
     }

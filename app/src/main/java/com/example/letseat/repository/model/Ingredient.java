@@ -1,14 +1,14 @@
 package com.example.letseat.repository.model;
 
 public class Ingredient {
-    private final String ingredientName;
+    private final String name;
 
-    public Ingredient(String ingredientName) {
-        this.ingredientName = ingredientName;
+    public Ingredient(String name) {
+        this.name = name;
     }
 
-    public String getIngredientName() {
-        return ingredientName;
+    public String getName() {
+        return name;
     }
 }
 

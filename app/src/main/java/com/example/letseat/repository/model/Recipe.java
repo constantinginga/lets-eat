@@ -1,6 +1,8 @@
 package com.example.letseat.repository.model;
 
-public class Recipe {
+import java.io.Serializable;
+
+public class Recipe implements Serializable {
     private final int id, total_time_minutes, num_servings;
     private final String name, img;
 

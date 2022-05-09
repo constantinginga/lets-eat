@@ -39,6 +39,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int position) {
         holder.name.setText(recipes.get(position).getName());
         Picasso.get().load(recipes.get(position).getImg()).into(holder.img);
+        holder.img.setClipToOutline(true);
     }
 
     @Override

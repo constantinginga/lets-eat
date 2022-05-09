@@ -31,6 +31,14 @@ public class RecipeViewModel extends ViewModel {
         repository.searchForRecipe(r);
     }
 
+    public void getRecipeInfo(int id) {
+        repository.getRecipeInfo(id);
+    }
+
+    public LiveData<RecipeResponse> getRecipeInfo() {
+        return repository.getRecipeInfo();
+    }
+
     public void getRecipesByIngredients(ArrayList<String> r) { repository.getRecipesByIngredients(r); }
 
 }

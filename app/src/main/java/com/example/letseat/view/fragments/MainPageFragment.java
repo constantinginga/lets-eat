@@ -1,5 +1,6 @@
 package com.example.letseat.view.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -22,10 +23,12 @@ import java.util.ArrayList;
 
 import com.example.letseat.repository.data.RecipeResponse;
 import com.example.letseat.repository.model.Recipe;
+import com.example.letseat.view.activities.RecipeActivity;
 import com.example.letseat.viewmodel.RecipeViewModel;
 
 public class MainPageFragment extends Fragment {
 
+    private Intent recipeIntent;
     private View view;
     private RecipeViewModel viewModel;
     private ArrayList<Recipe> recipes;
@@ -50,6 +53,7 @@ public class MainPageFragment extends Fragment {
     }
 
     private void init() {
+        recipeIntent = new Intent(getActivity(), RecipeActivity.class);
         viewModel = new ViewModelProvider(this).get(RecipeViewModel.class);
         rv = view.findViewById(R.id.rv);
         recipeIn = view.findViewById(R.id.searchRecipeInput);
@@ -68,7 +72,12 @@ public class MainPageFragment extends Fragment {
             recipes.add(re.getRecipe());
         }
         RecipeAdapter recipeAdapter = new RecipeAdapter(recipes, recipe -> {
-            Toast.makeText(getActivity(), recipe.getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), recipe + "", Toast.LENGTH_SHORT).show();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("recipe", recipe);
+            recipeIntent.putExtras(bundle);
+            startActivity(recipeIntent);
+
         });
         rv.setAdapter(recipeAdapter);
         pb.setVisibility(View.GONE);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
@@ -19,4 +20,8 @@ public interface RecipeApi {
     @Headers({HOST, KEY})
     @GET("/recipes/list")
     Call<RecipesResponse> getIngredientsList(@Query("from") int from, @Query("size") int size, @Query("q") ArrayList<String> ingredients);
+
+    @Headers({HOST, KEY})
+    @GET("recipes/get-more-info")
+    Call<RecipeResponse> getRecipeInfo(@Query("id") int id);
 }

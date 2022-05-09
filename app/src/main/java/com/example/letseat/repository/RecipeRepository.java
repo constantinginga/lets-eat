@@ -18,11 +18,13 @@ import retrofit2.Response;
 public class RecipeRepository {
     private static RecipeRepository instance;
     private final MutableLiveData<ArrayList<RecipeResponse>> recipes;
+    private final MutableLiveData<RecipeResponse> recipeInfo;
     private final ArrayList<RecipeResponse> cachedRecipes;
     private final ArrayList<RecipeResponse> searchedRecipes;
 
     private RecipeRepository() {
         recipes = new MutableLiveData<>();
+        recipeInfo = new MutableLiveData<>();
         cachedRecipes = new ArrayList<>();
         searchedRecipes = new ArrayList<>();
     }
@@ -68,6 +70,10 @@ public class RecipeRepository {
         return recipes;
     }
 
+    public MutableLiveData<RecipeResponse> getRecipeInfo() {
+        return recipeInfo;
+    }
+
     public void getAllRecipes(int size) {
         RecipeApi recipeApi = ServiceGenerator.getRecipeApi();
         Call<RecipesResponse> call = recipeApi.getRecipeList(0, size);
@@ -82,7 +88,7 @@ public class RecipeRepository {
 
             @Override
             public void onFailure(Call<RecipesResponse> call, Throwable t) {
-                Log.i("API", "Error in getAllRecipes()");
+                Log.i("API", "Error in getAllRecipes() " + t.getMessage());
             }
         });
 
@@ -101,7 +107,25 @@ public class RecipeRepository {
 
             @Override
             public void onFailure(Call<RecipesResponse> call, Throwable t) {
-                Log.i("API", "Error in getting all getRecipesByIngredients");
+                Log.i("API", "Error in getRecipesByIngredients() " + t.getMessage());
+            }
+        });
+    }
+
+    public void getRecipeInfo(int id) {
+        RecipeApi recipeApi = ServiceGenerator.getRecipeApi();
+        Call<RecipeResponse> call = recipeApi.getRecipeInfo(id);
+        call.enqueue(new Callback<RecipeResponse>() {
+            @Override
+            public void onResponse(Call<RecipeResponse> call, Response<RecipeResponse> response) {
+                if (response.isSuccessful()) {
+                    recipeInfo.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RecipeResponse> call, Throwable t) {
+                Log.i("API", "Error in getRecipeInfo() " + t.getMessage());
             }
         });
     }
