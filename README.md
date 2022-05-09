@@ -10,10 +10,12 @@ The users can com.example.letseat.view a list of recipes, with the necessary ing
 - [x] Connect to the [Tasty API](https://rapidapi.com/apidojo/api/tasty/)
 - [x] Connect to Firebase
 - [x] Setup Firebase authentication
-- [ ] Finish initial page
+- [x] Finish initial page
 - [x] Implement Authentication page
 - [ ] Implement "search by product" page
 - [x] Implement bottom navigation
+- [x] Implement recipe details page
+- [x] Implement instructions page
  
 ## Live Demo
 - Not available yet
