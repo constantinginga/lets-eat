@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsEat">
         <activity
+            android:name=".view.activities.InstructionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activities.RecipeActivity"
             android:exported="false"
             android:parentActivityName=".view.activities.MainActivity" />

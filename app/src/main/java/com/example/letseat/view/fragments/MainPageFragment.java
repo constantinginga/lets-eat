@@ -25,6 +25,7 @@ import com.example.letseat.repository.data.RecipeResponse;
 import com.example.letseat.repository.model.Recipe;
 import com.example.letseat.view.activities.RecipeActivity;
 import com.example.letseat.viewmodel.RecipeViewModel;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class MainPageFragment extends Fragment {
 
@@ -35,7 +36,7 @@ public class MainPageFragment extends Fragment {
     private RecyclerView rv;
     private ProgressBar pb;
     private LinearLayout layout;
-    private EditText recipeIn;
+    private TextInputLayout recipeIn;
     private Button searchBtn;
 
     @Override
@@ -46,7 +47,7 @@ public class MainPageFragment extends Fragment {
         viewModel.getRecipes().observe(getViewLifecycleOwner(), this::refreshRecipes);
 
         searchBtn.setOnClickListener(v -> {
-            if (recipeIn.getText() != null) viewModel.searchForRecipe(recipeIn.getText().toString());
+            if (recipeIn.getEditText() != null && recipeIn.getEditText().getText() != null) viewModel.searchForRecipe(recipeIn.getEditText().getText().toString());
         });
 
         return view;
@@ -72,12 +73,10 @@ public class MainPageFragment extends Fragment {
             recipes.add(re.getRecipe());
         }
         RecipeAdapter recipeAdapter = new RecipeAdapter(recipes, recipe -> {
-            Toast.makeText(getActivity(), recipe + "", Toast.LENGTH_SHORT).show();
             Bundle bundle = new Bundle();
             bundle.putSerializable("recipe", recipe);
             recipeIntent.putExtras(bundle);
             startActivity(recipeIntent);
-
         });
         rv.setAdapter(recipeAdapter);
         pb.setVisibility(View.GONE);
