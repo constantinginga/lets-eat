@@ -60,4 +60,7 @@ dependencies {
 
     //Firebase authentication
     implementation 'com.google.firebase:firebase-auth'
+
+    //Firebase realtime database
+    implementation 'com.google.firebase:firebase-database'
 }

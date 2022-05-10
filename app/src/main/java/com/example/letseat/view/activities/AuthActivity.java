@@ -8,17 +8,21 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.letseat.R;
+import com.example.letseat.repository.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import com.example.letseat.view.fragments.LoginFragment;
 import com.example.letseat.view.fragments.SignUpFragment;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
 public class AuthActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
     private Intent mainActivityIntent;
 
     @Override
@@ -28,6 +32,7 @@ public class AuthActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         mainActivityIntent = new Intent(AuthActivity.this, MainActivity.class);
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     @Override
@@ -64,6 +69,9 @@ public class AuthActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Sign up successful
                         Log.d("Auth", "createUserWithEmail:success");
+                        if (task.getResult().getUser() != null) {
+                            mDatabase.child("users").child(task.getResult().getUser().getUid()).setValue(new User(email));
+                        }
                         startActivity(mainActivityIntent);
                     } else {
                         // Sign up failed
