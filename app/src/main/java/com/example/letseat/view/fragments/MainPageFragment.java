@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.letseat.R;
@@ -38,11 +39,28 @@ public class MainPageFragment extends Fragment {
     private LinearLayout layout;
     private TextInputLayout recipeIn;
     private Button searchBtn;
+    private TextView mainPageTitle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_main_page, container, false);
         init();
+
+        if (getArguments() != null) {
+            ArrayList<String> ingredients = getArguments().getStringArrayList("ingredients");
+            if (ingredients != null) {
+                searchBtn.setVisibility(View.GONE);
+                recipeIn.setVisibility(View.GONE);
+                mainPageTitle.setText(R.string.search_results);
+                ingredients = getArguments().getStringArrayList("ingredients");
+                /*
+                TODO:
+                 - add topbar with back button to searchByProductFragment
+                 - call api with ingredients from ingredients arraylist
+                 */
+            }
+        }
+
         viewModel.getAllRecipes(1000);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), this::refreshRecipes);
 
@@ -59,6 +77,7 @@ public class MainPageFragment extends Fragment {
         rv = view.findViewById(R.id.rv);
         recipeIn = view.findViewById(R.id.searchRecipeInput);
         searchBtn = view.findViewById(R.id.searchRecipeBtn);
+        mainPageTitle = view.findViewById(R.id.mainPageTitle);
         pb = view.findViewById(R.id.progressBar);
         layout = view.findViewById(R.id.linearLayoutParent);
         layout.setVisibility(View.GONE);

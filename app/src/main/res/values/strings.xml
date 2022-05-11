@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Let\'s Eat</string>
     <string name="main_title">Find the best recipe 🧑‍🍳</string>
+    <string name="search_results">Search results</string>
     <string name="search_placeholder">Enter recipe name...</string>
     <string name="recipe_details">Recipe details</string>
     <string name="detailed_serving_size">%1$d serving(s)</string>
@@ -10,4 +11,10 @@
     <string name="previous_btn">Previous</string>
     <string name="next_btn">Next</string>
     <string name="home_btn">Home</string>
+    <string name="ingredient_input_placeholder">Enter ingredient name...</string>
+    <string name="search_by_product_title">What\'s in your kitchen?</string>
+    <string name="search_by_product_subtitle">Enter up to 3 ingredients</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
 </resources>
