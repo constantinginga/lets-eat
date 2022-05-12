@@ -5,6 +5,12 @@
           android:title="Home"
           android:icon="@drawable/ic_home"/>
     <item android:id="@+id/searchByProductFragment"
-        android:title="Ingredients"
+          android:title="Ingredients"
           android:icon="@drawable/ic_search"/>
+    <item android:id="@+id/savedRecipesFragment"
+          android:title="Saved"
+        />
+    <item android:id="@+id/logOutFragment"
+          android:title="Log out"
+        />
 </menu>
