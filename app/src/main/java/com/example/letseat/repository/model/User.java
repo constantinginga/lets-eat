@@ -1,8 +1,10 @@
 package com.example.letseat.repository.model;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.database.IgnoreExtraProperties;
 
-import java.util.Locale;
+import java.io.Serializable;
 
 @IgnoreExtraProperties
 public class User {
@@ -22,5 +24,14 @@ public class User {
 
     public String getRole() {
         return role;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

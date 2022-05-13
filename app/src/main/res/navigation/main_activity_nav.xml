@@ -15,4 +15,9 @@
         android:name="com.example.letseat.view.fragments.SearchByProductFragment"
         android:label="SearchByProductFragment"
         tools:layout="@layout/fragment_search_by_product"/>
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="com.example.letseat.view.fragments.AddRecipeFragment"
+        android:label="AddRecipeFragment"
+        tools:layout="@layout/fragment_add_recipe"/>
 </navigation>
