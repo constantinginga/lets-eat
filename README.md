@@ -12,7 +12,7 @@ The users can com.example.letseat.view a list of recipes, with the necessary ing
 - [x] Setup Firebase authentication
 - [x] Finish initial page
 - [x] Implement Authentication page
-- [ ] Implement "search by product" page
+- [x] Implement "search by product" page
 - [x] Implement bottom navigation
 - [x] Implement recipe details page
 - [x] Implement instructions page
@@ -27,7 +27,7 @@ The users can com.example.letseat.view a list of recipes, with the necessary ing
 | 2      | Critical | As a user, I would like to see the list of ingredients and quantity of each ingredient for a specific recipe, such that I can know the necessary ingredients. | &check; |
 | 3      | Critical | As an administrator, I would like to create new recipes, such that I can give users more options.                                                             | &cross; |
 | 4      | Critical | As a user, I would like to see the steps for a specific recipe, such that I can know how to cook that recipe.                                                 | &check; |
-| 5      | High     | As a user, I would like to choose what ingredients I have at home, such that I can see the recipes that include them.                                         | &cross; |
+| 5      | High     | As a user, I would like to choose what ingredients I have at home, such that I can see the recipes that include them.                                         | &check; |
 | 6      | High     | As an administrator, I would like to be able to edit an existing recipe, such that I can make certain adjustments.                                            | &cross; |
 | 7      | High     | As an administrator, I would like to delete certain recipes, such that I can remove old recipes from the app.                                                 | &cross; |
 | 8      | High     | As a user, I would like to create an account, such that I can view the recipes.                                                                               | &check; |

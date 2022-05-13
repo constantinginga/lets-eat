@@ -2,6 +2,9 @@ package com.example.letseat.view.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +24,7 @@ import com.example.letseat.R;
 import com.example.letseat.view.RecipeAdapter;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import com.example.letseat.repository.data.RecipeResponse;
 import com.example.letseat.repository.model.Recipe;
@@ -49,35 +53,36 @@ public class MainPageFragment extends Fragment {
         if (getArguments() != null) {
             ArrayList<String> ingredients = getArguments().getStringArrayList("ingredients");
             if (ingredients != null) {
+                ActionBar topBar = Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar());
+                topBar.show();
+                topBar.setElevation(0);
+                requireActivity().setTitle(getString(R.string.search_results));
+                mainPageTitle.setVisibility(View.GONE);
                 searchBtn.setVisibility(View.GONE);
                 recipeIn.setVisibility(View.GONE);
-                mainPageTitle.setText(R.string.search_results);
+                layout.setPadding(layout.getPaddingLeft(), 0, layout.getPaddingRight(), layout.getPaddingBottom());
                 ingredients = getArguments().getStringArrayList("ingredients");
-                /*
-                TODO:
-                 - add topbar with back button to searchByProductFragment
-                 - call api with ingredients from ingredients arraylist
-                 */
+                viewModel.getRecipesByIngredients(ingredients);
             }
+        } else {
+            viewModel.getAllRecipes(1000);
+            searchBtn.setOnClickListener(v -> {
+                if (recipeIn.getEditText() != null && recipeIn.getEditText().getText() != null) viewModel.searchForRecipe(recipeIn.getEditText().getText().toString());
+            });
         }
-
-        viewModel.getAllRecipes(1000);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), this::refreshRecipes);
-
-        searchBtn.setOnClickListener(v -> {
-            if (recipeIn.getEditText() != null && recipeIn.getEditText().getText() != null) viewModel.searchForRecipe(recipeIn.getEditText().getText().toString());
-        });
 
         return view;
     }
 
     private void init() {
+        Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).hide();
         recipeIntent = new Intent(getActivity(), RecipeActivity.class);
         viewModel = new ViewModelProvider(this).get(RecipeViewModel.class);
         rv = view.findViewById(R.id.rv);
+        mainPageTitle = view.findViewById(R.id.mainPageTitle);
         recipeIn = view.findViewById(R.id.searchRecipeInput);
         searchBtn = view.findViewById(R.id.searchRecipeBtn);
-        mainPageTitle = view.findViewById(R.id.mainPageTitle);
         pb = view.findViewById(R.id.progressBar);
         layout = view.findViewById(R.id.linearLayoutParent);
         layout.setVisibility(View.GONE);
