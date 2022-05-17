@@ -56,7 +56,8 @@
                 android:layout_weight="0"
                 android:insetLeft="0dp"
                 android:insetRight="0dp"
-                android:text="Search" />
+                android:backgroundTint="@color/black"
+                android:text="@string/search" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

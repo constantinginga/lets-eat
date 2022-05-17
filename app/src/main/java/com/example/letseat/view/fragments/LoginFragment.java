@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.letseat.view.activities.AuthActivity;
 import com.example.letseat.R;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment {
@@ -28,20 +29,18 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         AuthActivity activity = ((AuthActivity) getActivity());
-        EditText emailInput = view.findViewById(R.id.loginEmailInput);
-        EditText passwordInput = view.findViewById(R.id.loginPasswordInput);
+        TextInputLayout emailInput = view.findViewById(R.id.loginEmailInput);
+        TextInputLayout passwordInput = view.findViewById(R.id.loginPasswordInput);
         Button loginBtn = view.findViewById(R.id.loginBtn);
         TextView signUpLink = view.findViewById(R.id.signUpLink);
 
         signUpLink.setPaintFlags(signUpLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         signUpLink.setOnClickListener(v -> activity.replaceFragment(false));
-        loginBtn.setOnClickListener(v -> activity.login(emailInput.getText().toString(), passwordInput.getText().toString()));
-//        FragmentManager fragmentManager = getParentFragmentManager();
-//        FragmentTransaction ft = fragmentManager.beginTransaction();
-//        // render different fragment based on login state
-//        ft.replace(R.id.fragmentContainerView, new SignUpFragment());
-//        ft.commit();
-
+        loginBtn.setOnClickListener(v -> {
+            if (emailInput.getEditText() != null && passwordInput.getEditText() != null) {
+                activity.login(emailInput.getEditText().getText().toString(), passwordInput.getEditText().getText().toString());
+            }
+        });
         return view;
     }
 }

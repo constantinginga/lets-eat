@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.letseat.view.activities.AuthActivity;
 import com.example.letseat.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUpFragment extends Fragment {
 
@@ -23,14 +24,18 @@ public class SignUpFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
         AuthActivity activity = ((AuthActivity) getActivity());
-        EditText emailInput = view.findViewById(R.id.signUpEmailInput);
-        EditText passwordInput = view.findViewById(R.id.signUpPasswordInput);
+        TextInputLayout emailInput = view.findViewById(R.id.signUpEmailInput);
+        TextInputLayout passwordInput = view.findViewById(R.id.signUpPasswordInput);
         Button signUpBtn = view.findViewById(R.id.signUpBtn);
         TextView loginLink = view.findViewById(R.id.loginLink);
 
         loginLink.setPaintFlags(loginLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         loginLink.setOnClickListener(v -> activity.replaceFragment(true));
-        signUpBtn.setOnClickListener(v -> activity.signup(emailInput.getText().toString(), passwordInput.getText().toString()));
+        signUpBtn.setOnClickListener(v ->{
+            if (emailInput.getEditText() != null && passwordInput.getEditText() != null) {
+                activity.signup(emailInput.getEditText().getText().toString(), passwordInput.getEditText().getText().toString());
+            }
+        });
         return view;
     }
 }

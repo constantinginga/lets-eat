@@ -57,10 +57,11 @@
                 android:id="@+id/addIngredientBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/black"
                 android:layout_weight="0"
                 android:insetLeft="0dp"
                 android:insetRight="0dp"
-                android:text="+" />
+                android:text="@string/plus" />
 
         </LinearLayout>
 

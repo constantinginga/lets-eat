@@ -45,18 +45,19 @@
             android:orientation="horizontal"
             android:layout_weight="15">
 
-            <Button
+            <ImageButton
                 android:id="@+id/homeBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/home_btn"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:src="@drawable/ic_home"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/prevBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/previous_btn"
+                android:textColor="@color/black"
                 style="?android:attr/buttonBarButtonStyle" />
 
             <Button
@@ -64,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/next_btn"
+                android:textColor="@color/black"
                 style="?android:attr/buttonBarButtonStyle" />
 
         </LinearLayout>
