@@ -44,7 +44,8 @@ public class User {
 
     public void setUid(String uid) {
         this.uid = uid;
-      
+    }
+
     @NonNull
     @Override
     public String toString() {

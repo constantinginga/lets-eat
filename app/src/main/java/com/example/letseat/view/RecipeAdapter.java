@@ -27,13 +27,14 @@ import jp.wasabeef.picasso.transformations.GrayscaleTransformation;
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
 
     private final ArrayList<Recipe> recipes;
-    private OnClickListener listener;
+    private final OnClickListener listener;
     private String postKey;
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private final FirebaseDatabase database;
 
     public RecipeAdapter(ArrayList<Recipe> recipes, OnClickListener listener) {
         this.recipes = recipes;
         this.listener = listener;
+        this.database = FirebaseDatabase.getInstance();
     }
 
     @NonNull
@@ -53,7 +54,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             Picasso.get().load(recipes.get(position).getImg()).into(holder.img);
         }
         holder.img.setClipToOutline(true);
-        String imgUrl = recipes.get(position).getImg();
         postKey =  String.valueOf(position);
     }
 
@@ -66,7 +66,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         private final TextView name;
         private final ImageView img;
         private final ImageButton btn;
-        private Boolean savedChecker = false;
 
 
         ViewHolder(View itemView) {
@@ -79,13 +78,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
             String currentUserId = firebaseUser.getUid();
 
-            // savedReference = database.getReference("saved");
-            DatabaseReference savedReferenceList = database.getReference("savedList").child(currentUserId);
-
             btn.setOnClickListener(view -> {
-                savedChecker = true;
                 btn.setImageResource(R.drawable.ic_turned_in);
-                database.getReference().child("users").child(currentUserId).child("saved_recipes").child(postKey).setValue(name.getText().toString());
+                database.getReference().child("users").child(currentUserId).child("saved_recipes").child(postKey + "-" + name.getText().toString()).setValue(name.getText().toString());
             });
 
         }

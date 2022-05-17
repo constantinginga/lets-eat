@@ -60,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
                             // if the user is an admin
                             if (userInDb.role.equals(Roles.ADMIN.name().toLowerCase())) {
                                 // add item to navbar
-                                bottomNavigationView.getMenu().add(Menu.NONE, R.id.addRecipeFragment, Menu.NONE, R.string.nav_new).setIcon(R.drawable.ic_baseline_add_24);
+                                if (bottomNavigationView.getMenu().size() != 5) {
+                                    bottomNavigationView.getMenu().add(Menu.NONE, R.id.addRecipeFragment, Menu.NONE, R.string.nav_new).setIcon(R.drawable.ic_baseline_add_24);
+                                }
                             }
                         }
                     }

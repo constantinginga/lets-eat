@@ -20,7 +20,7 @@
         android:id="@+id/savedRecipesFragment"
         android:name="com.example.letseat.view.fragments.SavedRecipesFragment"
         android:label="fragment_saved_recipies_fragment"
-        tools:layout="@layout/fragment_saved_recipies" />
+        tools:layout="@layout/fragment_saved_recipes" />
     <fragment
         android:id="@+id/logOutFragment"
         android:name="com.example.letseat.view.fragments.LogOutFragment"

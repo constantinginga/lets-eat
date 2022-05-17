@@ -37,6 +37,6 @@ The users can com.example.letseat.view a list of recipes, with the necessary ing
 | 12     | High     | As a user, I would like to see the total cooking time for a specific recipe, such that I can know how long it will take me to cook it.                        | &cross; |
 | 13     | Low      | As a user, I would like to see an image of the recipe, such that I can see what the final product looks like.                                                 | &check; |
 | 14     | Low      | As a user, I would like to see the number of servings for a specific recipe, such that I can know the serving size.                                           | &check; |
-| 15     | Low      | As a user, I would like to save recipes, such that I can view the recipes I cook the most.                                                                    | &cross; |
+| 15     | Low      | As a user, I would like to save recipes, such that I can view the recipes I cook the most.                                                                    | &check; |
 | 16     | Low      | As a user, I would like to see which recipes are the most popular, such that I can more easily decide what to cook.                                           | &cross; |
 | 17     | Low      | As a user, I would like to see the total number of steps for each recipe, such that I can see how close I am to finishing it.                                 | &check; |

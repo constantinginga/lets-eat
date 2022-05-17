@@ -7,13 +7,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.letseat.R;
-import com.example.letseat.repository.model.Recipe;
 import com.example.letseat.view.SavedRecipeAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,7 +34,7 @@ public class SavedRecipesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_saved_recipies, container, false);
+        View view = inflater.inflate(R.layout.fragment_saved_recipes, container, false);
         
         // init recyclerview
         recyclerView = view.findViewById(R.id.savedRecipesRecyclerView);

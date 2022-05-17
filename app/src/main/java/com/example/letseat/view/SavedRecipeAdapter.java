@@ -11,14 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.letseat.R;
-import com.example.letseat.repository.model.Recipe;
 
 import java.util.List;
 
 public class SavedRecipeAdapter extends RecyclerView.Adapter<SavedRecipeAdapter.MyHolder> {
 
-    Context context;
-    List<String> recipeList;
+    private final Context context;
+    private final List<String> recipeList;
 
     // constructor
     public SavedRecipeAdapter(Context context, List<String> recipeList){
@@ -43,13 +42,7 @@ public class SavedRecipeAdapter extends RecyclerView.Adapter<SavedRecipeAdapter.
         holder.recipeName.setText(recipeName);
 
         //handle item click
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, ""+recipeName, Toast.LENGTH_SHORT).show();
-            }
-        });
+        holder.itemView.setOnClickListener(view -> Toast.makeText(context, ""+recipeName, Toast.LENGTH_SHORT).show());
 
     }
 

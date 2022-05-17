@@ -31,7 +31,7 @@ public class AddRecipeFragment extends Fragment {
 
             nextBtn.setOnClickListener(v -> {
                 if (recipeName.getEditText() != null && recipeUrl.getEditText() != null) {
-                    createRecipe(recipeName.getEditText().getText().toString(), recipeUrl.getEditText().getText().toString());
+                    createRecipe(recipeName.getEditText().getText().toString(), recipeUrl.getEditText().getText().toString(), container);
                 }
             });
         return view;
@@ -44,8 +44,11 @@ public class AddRecipeFragment extends Fragment {
         nextBtn = view.findViewById(R.id.addRecipeBtn);
     }
 
-    private void createRecipe(String name, String url) {
-        Recipe recipe = new Recipe(name, url);
-        mDatabase.child("recipes").child(name.toLowerCase()).setValue(recipe);
+    private void createRecipe(String name, String url, ViewGroup container) {
+        if (name != null && url != null && !name.equals("") && !url.equals("")) {
+            Recipe recipe = new Recipe(name, url);
+            mDatabase.child("recipes").child(name.toLowerCase()).setValue(recipe);
+            getParentFragmentManager().beginTransaction().replace(container.getId(), new MainPageFragment()).commit();
+        }
     }
 }

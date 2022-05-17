@@ -32,4 +32,8 @@
     <string name="log_in">Log In</string>
     <string name="dont_have_an_account">Don\'t have an account?</string>
     <string name="plus">+</string>
+    <string name="create">Create</string>
+    <string name="saved_recipes_title">Saved recipes 🔖</string>
+    <string name="add_recipe_title">Create a new recipe ⚗️</string>
+    <string name="log_out">Log out</string>
 </resources>

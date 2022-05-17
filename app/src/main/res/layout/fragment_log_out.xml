@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.LogOutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/logOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log out"
+        android:backgroundTint="@color/black"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:text="@string/log_out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
