@@ -16,9 +16,11 @@ The users can com.example.letseat.view a list of recipes, with the necessary ing
 - [x] Implement bottom navigation
 - [x] Implement recipe details page
 - [x] Implement instructions page
+- [x] Implement create new recipes page
+- [x] Save recipes page
  
 ## Live Demo
-- Not available yet
+- [![Video of live demo]({https://i.imgur.com/uuuw9Y8.png})]({https://www.youtube.com/watch?v=MNFT3WA2b1Y&ab_channel=andronachi09} "Video of live demo")
 
 ## Requirements
 | Number | Priority | Requirement                                                                                                                                                   | Status          |
@@ -27,7 +29,7 @@ The users can com.example.letseat.view a list of recipes, with the necessary ing
 | 2      | Critical | As a user, I would like to see the list of ingredients and quantity of each ingredient for a specific recipe, such that I can know the necessary ingredients. | &check; |
 | 3      | Critical | As an administrator, I would like to create new recipes, such that I can give users more options.                                                             | &check; |
 | 4      | Critical | As a user, I would like to see the steps for a specific recipe, such that I can know how to cook that recipe.                                                 | &check; |
-| 5      | High     | As a user, I would like to choose what ingredients I have at home, such that I can see the recipes that include them.                                         | &check; |
+| 5      | High     | As a user, I would like to choose what ingredients I have at home, such that I can see the recipes that include them.                                         | &cross; |
 | 6      | High     | As an administrator, I would like to be able to edit an existing recipe, such that I can make certain adjustments.                                            | &cross; |
 | 7      | High     | As an administrator, I would like to delete certain recipes, such that I can remove old recipes from the app.                                                 | &cross; |
 | 8      | High     | As a user, I would like to create an account, such that I can view the recipes.                                                                               | &check; |
@@ -37,6 +39,6 @@ The users can com.example.letseat.view a list of recipes, with the necessary ing
 | 12     | High     | As a user, I would like to see the total cooking time for a specific recipe, such that I can know how long it will take me to cook it.                        | &cross; |
 | 13     | Low      | As a user, I would like to see an image of the recipe, such that I can see what the final product looks like.                                                 | &check; |
 | 14     | Low      | As a user, I would like to see the number of servings for a specific recipe, such that I can know the serving size.                                           | &check; |
-| 15     | Low      | As a user, I would like to save recipes, such that I can view the recipes I cook the most.                                                                    | &check; |
+| 15     | Low      | As a user, I would like to save recipes, such that I can com.example.letseat.view the recipes I cook the most.                                                | &check; |
 | 16     | Low      | As a user, I would like to see which recipes are the most popular, such that I can more easily decide what to cook.                                           | &cross; |
 | 17     | Low      | As a user, I would like to see the total number of steps for each recipe, such that I can see how close I am to finishing it.                                 | &check; |
