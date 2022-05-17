@@ -120,7 +120,7 @@ public class MainPageFragment extends Fragment {
 
     private void refreshRecipes(ArrayList<RecipeResponse> r) {
         recipes.clear();
-        if (recipesFromDb.size() != 0) {
+        if (recipesFromDb.size() != 0 && getArguments() == null) {
             recipes.addAll(recipesFromDb);
         }
         for (RecipeResponse re : r) {
