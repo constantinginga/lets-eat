@@ -20,7 +20,7 @@ The users can com.example.letseat.view a list of recipes, with the necessary ing
 - [x] Save recipes page
  
 ## Live Demo
-- [![Video of live demo]({https://i.imgur.com/uuuw9Y8.png})]({https://www.youtube.com/watch?v=MNFT3WA2b1Y&ab_channel=andronachi09} "Video of live demo")
+[Link to YouTube video of live demo](https://www.youtube.com/watch?v=MNFT3WA2b1Y&ab_channel=andronachi09)
 
 ## Requirements
 | Number | Priority | Requirement                                                                                                                                                   | Status          |
