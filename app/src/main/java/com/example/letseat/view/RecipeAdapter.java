@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import com.example.letseat.repository.model.Recipe;
 import com.example.letseat.repository.OnClickListener;
 
+import jp.wasabeef.picasso.transformations.GrayscaleTransformation;
+
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
 
     private final ArrayList<Recipe> recipes;
@@ -38,7 +40,11 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int position) {
         holder.name.setText(recipes.get(position).getName());
-        Picasso.get().load(recipes.get(position).getImg()).into(holder.img);
+        if (recipes.get(position).getId() == -1) {
+            Picasso.get().load(recipes.get(position).getImg()).transform(new GrayscaleTransformation()).into(holder.img);
+        } else {
+            Picasso.get().load(recipes.get(position).getImg()).into(holder.img);
+        }
         holder.img.setClipToOutline(true);
     }
 

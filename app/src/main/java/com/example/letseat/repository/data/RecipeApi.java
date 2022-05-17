@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 public interface RecipeApi {
 
     String HOST = "X-RapidAPI-Host: tasty.p.rapidapi.com";
-    String KEY = "X-RapidAPI-Key: c4ac8e031amsh935622089237fdfp1552f4jsn6d24710d79ba";
+    String KEY = "X-RapidAPI-Key: 0f41e94224msh2b03949d4a80c28p1d6f17jsn3c59188eae36";
 
     @Headers({HOST, KEY})
     @GET("/recipes/list")
