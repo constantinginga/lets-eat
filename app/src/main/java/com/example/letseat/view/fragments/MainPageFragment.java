@@ -2,6 +2,7 @@ package com.example.letseat.view.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,10 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.letseat.R;
 import com.example.letseat.view.RecipeAdapter;
@@ -27,7 +26,8 @@ import com.example.letseat.view.activities.RecipeActivity;
 import com.example.letseat.viewmodel.RecipeViewModel;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class MainPageFragment extends Fragment {
+
+public class MainPageFragment extends Fragment implements View.OnClickListener{
 
     private Intent recipeIntent;
     private View view;
@@ -82,4 +82,7 @@ public class MainPageFragment extends Fragment {
         pb.setVisibility(View.GONE);
         layout.setVisibility(View.VISIBLE);
     }
+
+    @Override
+    public void onClick(View view) {}
 }

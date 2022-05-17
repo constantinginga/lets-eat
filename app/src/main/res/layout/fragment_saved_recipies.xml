@@ -5,10 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.SavedRecipesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-         />
+        android:orientation="vertical">
 
+
+        <TextView
+            android:id="@+id/savedRecipesList"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Saved recipies"
+            android:textSize="30sp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/savedRecipesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </FrameLayout>

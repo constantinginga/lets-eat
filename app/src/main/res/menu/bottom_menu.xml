@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item android:id="@+id/mainPageFragment"
           android:title="Home"
@@ -9,8 +9,10 @@
           android:icon="@drawable/ic_search"/>
     <item android:id="@+id/savedRecipesFragment"
           android:title="Saved"
+          android:icon="@drawable/ic_favorite"
         />
     <item android:id="@+id/logOutFragment"
           android:title="Log out"
+          android:icon="@drawable/ic_logout"
         />
 </menu>

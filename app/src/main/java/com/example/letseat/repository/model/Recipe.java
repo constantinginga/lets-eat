@@ -3,8 +3,10 @@ package com.example.letseat.repository.model;
 import java.io.Serializable;
 
 public class Recipe implements Serializable {
-    private final int id, total_time_minutes, num_servings;
-    private final String name, img;
+    private  int id, total_time_minutes, num_servings;
+    private  String name, img;
+
+    public Recipe() {}
 
     public Recipe(int id, String name, String img, int total_time_minutes, int num_servings) {
         this.id = id;
@@ -32,5 +34,25 @@ public class Recipe implements Serializable {
 
     public int getNum_servings() {
         return num_servings;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTotal_time_minutes(int total_time_minutes) {
+        this.total_time_minutes = total_time_minutes;
+    }
+
+    public void setNum_servings(int num_servings) {
+        this.num_servings = num_servings;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }
