@@ -39,6 +39,18 @@
                 android:textAlignment="center"
                 android:padding="15dp"
                 android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/savedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/rounded_bg"
+                android:padding="5dp"
+                android:src="@drawable/ic_turned_in_not" />
         </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

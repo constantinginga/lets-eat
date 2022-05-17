@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
-    app:startDestination="@id/mainPageFragment">
+    app:startDestination="@id/mainPageFragment" >
 
     <fragment
         android:id="@+id/mainPageFragment"
@@ -15,7 +15,19 @@
         android:name="com.example.letseat.view.fragments.SearchByProductFragment"
         android:label="SearchByProductFragment"
         tools:layout="@layout/fragment_search_by_product"/>
+  
     <fragment
+        android:id="@+id/savedRecipesFragment"
+        android:name="com.example.letseat.view.fragments.SavedRecipesFragment"
+        android:label="fragment_saved_recipies_fragment"
+        tools:layout="@layout/fragment_saved_recipies" />
+    <fragment
+        android:id="@+id/logOutFragment"
+        android:name="com.example.letseat.view.fragments.LogOutFragment"
+        android:label="fragment_log_out"
+        tools:layout="@layout/fragment_log_out" />
+  
+  <fragment
         android:id="@+id/addRecipeFragment"
         android:name="com.example.letseat.view.fragments.AddRecipeFragment"
         android:label="AddRecipeFragment"

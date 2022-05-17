@@ -6,6 +6,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -15,6 +16,7 @@ import com.example.letseat.repository.model.User;
 import com.example.letseat.repository.model.UserList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import java.util.Objects;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         isCurrentAdmin();
         NavController navController = Navigation.findNavController(this,  R.id.fragmentContainerView);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+    }
+
+    public void logOut() {
+        FirebaseAuth.getInstance().signOut();
+        finish();
+        startActivity(new Intent(this, AuthActivity.class));
     }
 
     private void isCurrentAdmin() {
