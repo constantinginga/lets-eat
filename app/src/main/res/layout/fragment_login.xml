@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.letseat.view.fragments.LoginFragment">
 
     <LinearLayout
@@ -14,8 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginVertical="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -23,14 +23,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Welcome back! 👋"
+                android:text="@string/login_title"
                 android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/authDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter your details to log in"
+                android:text="@string/login_subtitle"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -39,40 +39,57 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginEmailInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Email address"
+                android:hint="@string/email_address"
                 android:layout_marginBottom="15dp"
-                android:inputType="textEmailAddress" />
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginPasswordInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Password"
-                android:layout_marginBottom="15dp"
-                android:inputType="textPassword" />
+                android:hint="@string/password"
+                app:endIconMode="password_toggle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <Button
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/signUpLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/dont_have_an_account"/>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/loginBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log In" />
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:backgroundTint="@color/black"
+                android:text="@string/log_in" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/signUpLink"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="Don't have an account?"/>
     </LinearLayout>
 
 </FrameLayout>
